@@ -1,0 +1,23 @@
+{
+  "name": "weixin-crypto",
+  "version": "1.0.0",
+  "description": "微信公众平台消息加解密库",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pengtikui/weixin-crypto"
+  },
+  "author": "pengtikui <949828390@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.1",
+    "typescript": "^3.9.2"
+  },
+  "types": "./lib",
+  "engines": {
+    "node": ">=10"
+  }
+}
