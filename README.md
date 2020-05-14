@@ -17,7 +17,7 @@
 
 ## 使用
 
-#### 安装：
+#### 安装
 
 ```shell
 # npm
@@ -26,7 +26,7 @@ npm install weixin-crypto
 yarn add weixin-crypto
 ```
 
-#### 初始化：
+#### 初始化
 
 ```javascript
 import WeixinCrypto from 'weixin-crypto';
@@ -38,7 +38,7 @@ const wxCrypto = new WeixinCrypto({
 });
 ```
 
-#### 校验消息体签名：
+#### 校验消息体签名
 
 ```javascript
 // 判断 URL 上的 msg_signature 和计算出的是否一致，伪代码
@@ -54,7 +54,7 @@ if (wxCrypto.getSignature({ timestamp, nonce, msg_encrypt }) === msg_signature) 
 
 `msg_encrypt` 为请求体中的密文消息，如果为 XML 格式，需要先自行解析出来，`weixin-crypto` 不会帮你解析 XML 内容。
 
-#### 解密消息：
+#### 解密消息
 
 ```javascript
 const msg_encrypt = '请求体中的密文消息';
@@ -65,7 +65,7 @@ const decrypted = wxCrypto.decrypt(msg_encrypt);
 
 解密前需要自行校验消息体签名，解密过程不包含签名校验流程；如果请求体为 XML 格式，解密后的内容为 XML 字符串，需要自行解析 XML 内容。
 
-#### 加密消息：
+#### 加密消息
 
 ```javascript
 const content = '要加密的内容';
