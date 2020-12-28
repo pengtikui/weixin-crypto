@@ -5,9 +5,11 @@
 [![pulls](https://img.shields.io/github/issues-pr/pengtikui/weixin-crypto?style=flat-square)](https://github.com/pengtikui/weixin-crypto/pulls)
 [![license](https://img.shields.io/github/license/pengtikui/weixin-crypto?style=flat-square)](https://github.com/pengtikui/weixin-crypto/blob/master/LICENSE)
 
-微信公众平台消息加解密库，可用于微信公众号、微信小程序、微信开放平台等。
+微信公众平台消息和开放数据加解密库，可用于微信公众号、微信小程序、微信开放平台等。
 
-具体请参考[消息加解密说明](https://developers.weixin.qq.com/doc/oplatform/Third-party_Platforms/Message_Encryption/Message_encryption_and_decryption.html)
+具体请参考：
+* [消息加解密说明](https://developers.weixin.qq.com/doc/oplatform/Third-party_Platforms/Message_Encryption/Message_encryption_and_decryption.html)
+* [开放数据校验与解密](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/signature.html)
 
 ## 特性
 
@@ -17,7 +19,7 @@
 
 ## 使用
 
-#### 安装
+### 安装
 
 ```shell
 # npm
@@ -25,6 +27,8 @@ npm install weixin-crypto
 # yarn
 yarn add weixin-crypto
 ```
+
+### 消息加解密
 
 #### 初始化
 
@@ -75,6 +79,31 @@ const encrypted = wxCrypto.encrypt(content);
 ```
 
 如果要加密 XML 格式的内容，需要先自行拼接成 XML 字符串再进行加密。
+
+### 开放数据解密
+
+#### 初始化
+
+```javascript
+import { WXBizDataCrypt } from 'weixin-crypto';
+
+const wxCrypto = new WXBizDataCrypt({
+  appid: '公众平台的 appid',
+  sessionKey: '用户登录的 session_key',
+});
+```
+
+#### 解密数据
+
+```javascript
+const msg_encrypt = '请求体中的密文消息';
+
+// 解密后的内容
+const decrypted = wxCrypto.decrypt({
+  encryptedData: '包括敏感数据在内的完整用户信息的加密数据',
+  iv: '加密算法的初始向量',
+});
+```
 
 ## License
 
