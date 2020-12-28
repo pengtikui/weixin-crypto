@@ -29,9 +29,9 @@ yarn add weixin-crypto
 #### 初始化
 
 ```javascript
-import WeixinCrypto from 'weixin-crypto';
+import { WXBizMsgCrypt } from 'weixin-crypto';
 
-const wxCrypto = new WeixinCrypto({
+const wxCrypto = new WXBizMsgCrypt({
   appid: '公众平台的 appid',
   token: '接收消息的校验 token',
   encodingAESKey: '接收消息的 EncodingAESKey',
